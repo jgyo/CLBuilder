@@ -7,42 +7,49 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:CLBuilder.viewModel"
     Title="Warning: Data Loss is Possible"
-    Width="469.86"
-    Height="396.378"
+    Width="468"
     d:DataContext="{d:DesignInstance vm:MainViewModel}"
     Icon="warning.png"
     ResizeMode="NoResize"
+    SizeToContent="Height"
     mc:Ignorable="d">
-    <Grid>
+    <Grid Margin="5,0,5,15">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
+            <ColumnDefinition Width="auto" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Image
-            Grid.ColumnSpan="2"
-            Width="300"
-            Height="200"
-            Margin="10"
+            Grid.Row="0"
+            Grid.Column="0"
+            Width="100"
+            Height="100"
+            Margin="5,0"
             HorizontalAlignment="Center"
-            Source="Warning-Stamp-Transparent.png" />
-        <Label Grid.Row="1" Grid.ColumnSpan="2">
-            <TextBlock Text="Warning: Checklist Data Builder does not check to ensure that modified data is saved. Some operations may cause changes to be lost if you fail to save your changes before those operations. This operation may cause data loss. If you are confident that your changes have been saved, you can continue. Otherwise, you may wish to cancel this operation for now and save you changes first." TextWrapping="Wrap" />
+            Source="/view/warning.png" />
+        <Label
+            Grid.Row="0"
+            Grid.Column="1"
+            VerticalAlignment="Center">
+            <TextBlock Text="Warning: Checklist Data Builder does not check to ensure that modified data is saved. Some operations may cause changes to be lost if you fail to save your changes before those operations. This operation may cause data loss. Do you wish to continue?" TextWrapping="Wrap" />
         </Label>
         <CheckBox
-            Grid.Row="3"
+            Grid.Row="1"
             Grid.Column="0"
-            Margin="5,10"
+            Grid.ColumnSpan="2"
+            Margin="15,0"
+            VerticalAlignment="Center"
             Content="Continue to show this warning"
             IsChecked="{Binding SaveWarningEnabled}" />
         <DockPanel
-            Grid.Row="3"
+            Grid.Row="1"
             Grid.Column="1"
-            HorizontalAlignment="Center"
+            Margin="15,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
             LastChildFill="False">
             <Button
                 x:Name="Cancel"

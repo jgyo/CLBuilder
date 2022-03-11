@@ -37,7 +37,8 @@
                 Grid.Column="1"
                 Margin="0,2"
                 Panel.ZIndex="2"
-                Text="{Binding Name}" />
+                Text="{Binding Name}"
+                ToolTip="Short name for the checklist. Used to create a filename for the script that represents the checklist." />
             <Label
                 Grid.Row="1"
                 Grid.Column="0"
@@ -47,7 +48,8 @@
                 Grid.Column="1"
                 Margin="0,2"
                 Panel.ZIndex="2"
-                Text="{Binding Title}" />
+                Text="{Binding Title}"
+                ToolTip="Official name of the checklist. Used to announce the script name with TTS." />
             <Label Grid.Row="2" Grid.Column="0">
                 <TextBlock Text="{Binding Instructions.Count, Mode=OneWay, StringFormat=Instructions (\{0:D\})}" />
             </Label>
@@ -57,10 +59,10 @@
                 Margin="0,2"
                 Panel.ZIndex="3"
                 BorderBrush="Black"
-                KeyboardNavigation.TabNavigation="Continue"
                 ItemsSource="{Binding Instructions}"
-                SelectedItem="{Binding SelectedInstruction}"
+                KeyboardNavigation.TabNavigation="Continue"
                 SelectedIndex="{Binding SelectedIndex}"
+                SelectedItem="{Binding SelectedInstruction}"
                 SelectionMode="Single"
                 Style="{StaticResource {ComponentResourceKey TypeInTargetAssembly={x:Type local:ItemView},
                                                              ResourceId=ItemViewStyle}}"

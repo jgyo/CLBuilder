@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace CLBuilder.model
 {
+    /// <summary>
+    /// Class ChecklistModel.
+    /// </summary>
     [DataContract]
     public class ChecklistModel
     {
@@ -14,21 +17,28 @@ namespace CLBuilder.model
         private string title;
         private string aircraftShortName;
 
-        public ChecklistModel(string aircraftName = "K100")
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ChecklistModel"/> class.
+        /// </summary>
+        /// <param name="aircraftName">Name of the aircraft.</param>
+        public ChecklistModel(string aircraftName = null)
         {
             ChecklistItems = new List<ChecklistInstructionModel>();
             this.aircraftShortName = aircraftName;
 
         }
 
-        public void SetAircraftShortName(string name)
-        {
-            aircraftShortName = name;
-        }
-
+        /// <summary>
+        /// Gets or sets the short name of the aircraft.
+        /// </summary>
+        /// <value>The short name of the aircraft.</value>
         [DataMember]
         public string AircraftShortName { get => aircraftShortName; set => aircraftShortName = value; }
 
+        /// <summary>
+        /// Gets or sets the title.
+        /// </summary>
+        /// <value>The title.</value>
         [DataMember]
         public string Title
         {
@@ -45,13 +55,25 @@ namespace CLBuilder.model
             set => title = value;
         }
 
+        /// <summary>
+        /// Gets or sets the next checklist title.
+        /// </summary>
+        /// <value>The next checklist title.</value>
         [DataMember]
         public string NextChecklistTitle { get; set; }
 
+        /// <summary>
+        /// Gets the checklist items.
+        /// </summary>
+        /// <value>The checklist items.</value>
         [DataMember]
 
         public List<ChecklistInstructionModel> ChecklistItems { get; private set; }
 
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>The name.</value>
         [DataMember]
         public string Name
         {
@@ -68,6 +90,10 @@ namespace CLBuilder.model
             set => name = value;
         }
 
+        /// <summary>
+        /// Gets the checklist text.
+        /// </summary>
+        /// <value>The checklist text.</value>
         public string ChecklistText
         {
             get

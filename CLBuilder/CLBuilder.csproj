@@ -109,6 +109,7 @@
     <Compile Include="Commands\SaveChecklistControlCommand.cs" />
     <Compile Include="Commands\ViewChecklistTextCommand.cs" />
     <Compile Include="Extentions\Extention.cs" />
+    <Compile Include="Extentions\SelectAllBehavior.cs" />
     <Compile Include="viewModel\ChecklistControlViewModel.cs" />
     <Compile Include="viewModel\ChecklistControlVM.cs" />
     <Compile Include="viewModel\ChecklistInstructionVM.cs" />

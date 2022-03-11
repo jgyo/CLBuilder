@@ -38,6 +38,7 @@
                 Grid.Row="0"
                 Grid.Column="1"
                 Margin="0,2"
+                ToolTip="Enter a short name for the aircraft"
                 Text="{Binding AircraftShortName}" />
             <Label
                 Grid.Row="1"
@@ -47,7 +48,7 @@
             <local:FolderTextBox
                 Grid.Row="1"
                 Grid.Column="1"
-                Margin="0,2"
+                Margin="0,2" ToolTip="Where will the scripts' folder be saved"
                 Text="{Binding ScriptsFolder}" />
             <Label
                 Grid.Row="2"
@@ -58,6 +59,7 @@
                 Grid.Row="2"
                 Grid.Column="1"
                 Margin="0,2"
+                ToolTip="Enter the name of the TTS voice to use"
                 Text="{Binding Voice}" />
             <Label
                 Grid.Row="3"
@@ -104,8 +106,8 @@
                 Grid.Row="5"
                 Grid.Column="1"
                 BorderBrush="Black"
-                KeyboardNavigation.TabNavigation="Continue"
                 ItemsSource="{Binding Checklists}"
+                KeyboardNavigation.TabNavigation="Continue"
                 SelectedIndex="{Binding SelectedIndex}"
                 SelectedItem="{Binding SelectedChecklist}"
                 SelectionMode="Single"

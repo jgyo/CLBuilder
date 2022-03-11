@@ -24,6 +24,9 @@ namespace CLBuilder.view
             InitializeComponent();
         }
 
+        /// <summary>Gets or sets a value indicating whether the current operation can continue.</summary>
+        /// <value>
+        ///   <c>true</c> if the current operation can continue; otherwise, <c>false</c>.</value>
         public bool CanContinue { get; set; }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)

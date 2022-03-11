@@ -3,7 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:CLBuilder.view"
+    xmlns:ext="clr-namespace:CLBuilder.Extentions"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:CLBuilder.viewModel"
     d:DataContext="{d:DesignInstance vm:ChecklistInstructionVM,
@@ -31,7 +31,9 @@
                 Grid.Row="0"
                 Grid.Column="1"
                 Margin="5,1,2,1"
-                Text="{Binding Instruction, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True}" />
+                ext:SelectAllBehavior.Enable="True"
+                Text="{Binding Instruction, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True}"
+                ToolTip="The instruction to give for this item." />
             <Label
                 Grid.Row="1"
                 Grid.Column="0"
@@ -40,7 +42,9 @@
                 Grid.Row="1"
                 Grid.Column="1"
                 Margin="5,1,2,1"
-                Text="{Binding CheckedResponse, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True}" />
+                ext:SelectAllBehavior.Enable="True"
+                Text="{Binding CheckedResponse, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True}"
+                ToolTip="Response to give after instruction has been followed." />
             <Label
                 Grid.Row="2"
                 Grid.Column="0"
@@ -49,7 +53,9 @@
                 Grid.Row="2"
                 Grid.Column="1"
                 Margin="5,1,2,1"
-                Text="{Binding Option, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True}" />
+                ext:SelectAllBehavior.Enable="True"
+                Text="{Binding Option, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True}"
+                ToolTip="An option. Usually the number 0 for a default pause before the checked response is given." />
         </Grid>
     </Border>
 </UserControl>

@@ -17,14 +17,32 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
-                <MenuItem Header="New" Command="{Binding NewChecklistCommand}" />
-                <MenuItem Header="Open ..." Command="{Binding OpenChecklistControlCommand}" />
-                <MenuItem Header="Save" Command="{Binding SaveChecklistCommand}" />
-                <MenuItem Header="Save as ..." Command="{Binding SaveChecklistAsCommand}" />
+                <MenuItem
+                    Command="{Binding NewChecklistCommand}"
+                    Header="New"
+                    ToolTip="Create a new checklist database." />
+                <MenuItem
+                    Command="{Binding OpenChecklistControlCommand}"
+                    Header="Open ..."
+                    ToolTip="Open an existing database." />
+                <MenuItem
+                    Command="{Binding SaveChecklistCommand}"
+                    Header="Save"
+                    ToolTip="Save data to current file." />
+                <MenuItem
+                    Command="{Binding SaveChecklistAsCommand}"
+                    Header="Save as ..."
+                    ToolTip="Save data to a file of your choice." />
                 <Separator />
-                <MenuItem Header="Build" Command="{Binding BuildChecklistScriptsCommand}" />
+                <MenuItem
+                    Command="{Binding BuildChecklistScriptsCommand}"
+                    Header="Build"
+                    ToolTip="Build RPN scripts from current data." />
                 <Separator />
-                <MenuItem Header="Exit" />
+                <MenuItem
+                    Name="ExitButton"
+                    Click="ExitButton_Click"
+                    Header="Exit" />
             </MenuItem>
             <MenuItem Header="_Options">
                 <MenuItem

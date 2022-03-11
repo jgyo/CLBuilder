@@ -18,10 +18,13 @@ using CLBuilder.Extentions;
 namespace CLBuilder.view
 {
     /// <summary>
-    /// Interaction logic for FolderTextBox.xaml
+    /// Creates a textbox with a browse button to locate a folder.
     /// </summary>
     public partial class FolderTextBox : UserControl
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FolderTextBox"/> class.
+        /// </summary>
         public FolderTextBox()
         {
             this.Text = "FolderTextBox";
@@ -31,6 +34,10 @@ namespace CLBuilder.view
 
 
 
+        /// <summary>
+        /// Gets or sets the text.
+        /// </summary>
+        /// <value>The text.</value>
         public string Text
         {
             get { return (string)GetValue(TextProperty); }
@@ -38,6 +45,9 @@ namespace CLBuilder.view
         }
 
         // Using a DependencyProperty as the backing store for Text.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// The text property
+        /// </summary>
         public static readonly DependencyProperty TextProperty =
             DependencyProperty.Register("Text", typeof(string), typeof(FolderTextBox), new FrameworkPropertyMetadata(string.Empty,
                 FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
