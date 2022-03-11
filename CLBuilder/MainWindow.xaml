@@ -1,0 +1,39 @@
+﻿<Window
+    x:Class="CLBuilder.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:CLBuilder"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view="clr-namespace:CLBuilder.view"
+    xmlns:vm="clr-namespace:CLBuilder.viewModel"
+    Title="Aircraft Checklist Scripts Builder"
+    Width="800"
+    Height="450"
+    d:DataContext="{d:DesignInstance vm:MainViewModel,
+                                     IsDesignTimeCreatable=False}"
+    Icon="view/control-panel-icon-png-30.png"
+    mc:Ignorable="d">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="New" Command="{Binding NewChecklistCommand}" />
+                <MenuItem Header="Open ..." Command="{Binding OpenChecklistControlCommand}" />
+                <MenuItem Header="Save" Command="{Binding SaveChecklistCommand}" />
+                <MenuItem Header="Save as ..." Command="{Binding SaveChecklistAsCommand}" />
+                <Separator />
+                <MenuItem Header="Build" Command="{Binding BuildChecklistScriptsCommand}" />
+                <Separator />
+                <MenuItem Header="Exit" />
+            </MenuItem>
+            <MenuItem Header="_Options">
+                <MenuItem
+                    Name="saveWarningMenuItem"
+                    Header="Show save warning"
+                    IsCheckable="True"
+                    IsChecked="{Binding SaveWarningEnabled}" />
+            </MenuItem>
+        </Menu>
+        <view:ChecklistControlView DataContext="{Binding ChecklistControlViewModel}" />
+    </DockPanel>
+</Window>

@@ -1,0 +1,139 @@
+﻿<Window
+    x:Class="CLBuilder.view.ChecklistEditorView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:CLBuilder.view"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:CLBuilder.viewModel"
+    Title="{Binding Name, StringFormat=Checklist Editor: \{0\}}"
+    Width="800"
+    Height="450"
+    d:DataContext="{d:DesignInstance vm:ChecklistVM,
+                                     IsDesignTimeCreatable=True}"
+    Icon="checkmark2.png"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <local:ItemView x:Key="itemView" ItemTemplate="{StaticResource CheckListInstructionTemplate}" />
+    </Window.Resources>
+    <Border Margin="4">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                Content="Name" />
+            <TextBox
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="0,2"
+                Panel.ZIndex="2"
+                Text="{Binding Name}" />
+            <Label
+                Grid.Row="1"
+                Grid.Column="0"
+                Content="Title" />
+            <TextBox
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="0,2"
+                Panel.ZIndex="2"
+                Text="{Binding Title}" />
+            <Label Grid.Row="2" Grid.Column="0">
+                <TextBlock Text="{Binding Instructions.Count, Mode=OneWay, StringFormat=Instructions (\{0:D\})}" />
+            </Label>
+            <ListView
+                Grid.Row="2"
+                Grid.Column="1"
+                Margin="0,2"
+                Panel.ZIndex="3"
+                BorderBrush="Black"
+                KeyboardNavigation.TabNavigation="Continue"
+                ItemsSource="{Binding Instructions}"
+                SelectedItem="{Binding SelectedInstruction}"
+                SelectedIndex="{Binding SelectedIndex}"
+                SelectionMode="Single"
+                Style="{StaticResource {ComponentResourceKey TypeInTargetAssembly={x:Type local:ItemView},
+                                                             ResourceId=ItemViewStyle}}"
+                View="{StaticResource itemView}" />
+            <DockPanel
+                Grid.Row="3"
+                Grid.Column="1"
+                Margin="5"
+                Panel.ZIndex="4"
+                LastChildFill="False">
+                <Button
+                    Width="20"
+                    Margin="4,0"
+                    Padding="4,2"
+                    Panel.ZIndex="4"
+                    Command="{Binding InsertInstructionCommand, Mode=OneWay}"
+                    DockPanel.Dock="Left"
+                    TextBlock.FontWeight="Black"
+                    ToolTip="Insert a new instruction above the selected instruction">
+                    <Image Source="insert.png" />
+                </Button>
+                <Button
+                    Width="20"
+                    Margin="4,0"
+                    Padding="4,2"
+                    Panel.ZIndex="5"
+                    Command="{Binding AddInstructionCommand, Mode=OneWay}"
+                    DockPanel.Dock="Left"
+                    TextBlock.FontWeight="Black"
+                    ToolTip="Add a new instruction">
+                    <Image Source="add.png" />
+                </Button>
+                <Button
+                    Width="20"
+                    Margin="4,0"
+                    Padding="4,2"
+                    Panel.ZIndex="6"
+                    Command="{Binding DeleteInstructionCommand, Mode=OneWay}"
+                    DockPanel.Dock="Left"
+                    TextBlock.FontWeight="Black"
+                    ToolTip="Delete the selected instruction">
+                    <Image Source="remove.png" />
+                </Button>
+                <Button
+                    Width="20"
+                    Margin="4,0"
+                    Padding="4,2"
+                    Panel.ZIndex="7"
+                    Command="{Binding MoveInstructionUpCommand, Mode=OneWay}"
+                    Content="▲"
+                    DockPanel.Dock="Left"
+                    TextBlock.FontWeight="Black"
+                    ToolTip="Move the selected instruction up" />
+                <Button
+                    Width="20"
+                    Margin="4,0"
+                    Padding="4,2"
+                    Panel.ZIndex="8"
+                    Command="{Binding MoveInstructionDownCommand, Mode=OneWay}"
+                    Content="▼"
+                    DockPanel.Dock="Left"
+                    TextBlock.FontWeight="Black"
+                    ToolTip="Move selected instruction down." />
+                <Button
+                    Width="40"
+                    Margin="4,0"
+                    Padding="4,2"
+                    Panel.ZIndex="10"
+                    Click="Button_Click"
+                    Content="Close"
+                    DockPanel.Dock="Right"
+                    ToolTip="Close the checklist editor" />
+            </DockPanel>
+        </Grid>
+    </Border>
+</Window>
