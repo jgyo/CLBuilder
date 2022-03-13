@@ -9,4 +9,4 @@ For information on running the scripts in Axis and Ohs see the section "19. Inte
 
 You will find instructions for installing and using **ACDB** under the Wiki tab above.
 
-**Notice:** The latest version of Malwarebytes flags the executable file, CLBuilder.exe, as MachineLearning/Anomalous.94%. This is a false positive notification. We have reported the error to Malwarebytes and hope to have this file excluded from detection soon. In the mean time you can exclude it from detection on your computer by restoring the file from quarantine, and then adding it to the list of excludable files within Malwarebytes.
+**Notice:** The version 4.5.5 of Malwarebytes flags the executable file, CLBuilder.exe, as MachineLearning/Anomalous.94%. This is a false positive notification. We have reported the error to Malwarebytes and hope to have this file excluded from detection soon. In the mean time you can exclude it from detection on your computer by restoring the file from quarantine, and then adding it to the list of excludable files within Malwarebytes.
