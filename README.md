@@ -8,3 +8,5 @@ I wrote **ACDB** to help users create interactive TTS checklists for [Lorby Axis
 For information on running the scripts in Axis and Ohs see the section "19. Interactive TextToSpeech Checklist" on page 93 of [Lorby "Axis and Ohs" for Microsoft Flight Simulator Documentation](https://axisandohs.weebly.com/uploads/6/0/8/2/60827113/lorbyaxisandohs_msfs_documentation.pdf). The documentation is written for Microsoft Flight Simulator, but the instructions regarding the use of scripts should work with any simulator.
 
 You will find instructions for installing and using **ACDB** under the Wiki tab above.
+
+**Notice:** The latest version of Malwarebytes flags the executable file, CLBuilder.exe, as MachineLearning/Anomalous.94%. This is a false positive notification. We have reported the error to Malwarebytes and hope to have this file excluded from detection soon. In the mean time you can exclude it from detection on your computer by restoring the file from quarantine, and then adding it to the list of excludable files within Malwarebytes.
