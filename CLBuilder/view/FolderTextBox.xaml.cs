@@ -29,7 +29,7 @@ namespace CLBuilder.view
         {
             this.Text = "FolderTextBox";
             // InitializeComponent();
-            this.LoadViewFromUri("/CLBuilder;component/view/FolderTextBox.xaml");
+            this.LoadViewFromUri("/ACDB;component/view/FolderTextBox.xaml");
         }
 
 

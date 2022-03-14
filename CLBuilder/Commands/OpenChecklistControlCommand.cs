@@ -29,8 +29,8 @@ namespace CLBuilder.Commands
                 CheckPathExists = true,
                 DefaultExt = "clbt",
                 Multiselect = false,
-                Filter = "All files|*.*|CLDB Files|*.cldb",
-                FilterIndex = 1,
+                Filter = "All files|*.*|ACDB Files|*.clbt",
+                FilterIndex = 2,
                 Title = "Open Checklist Data File",
                 ValidateNames = true
             };

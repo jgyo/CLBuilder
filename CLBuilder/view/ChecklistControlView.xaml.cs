@@ -25,7 +25,7 @@ namespace CLBuilder.view
         {
             //InitializeComponent();
 
-            this.LoadViewFromUri("CLBuilder;component/view/checklistcontrolview.xaml");
+            this.LoadViewFromUri("ACDB;component/view/checklistcontrolview.xaml");
         }
     }
 }

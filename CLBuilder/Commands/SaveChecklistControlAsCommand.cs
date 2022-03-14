@@ -30,6 +30,8 @@ namespace CLBuilder.Commands
                 DefaultExt = "clbt",
                 Multiselect = false,
                 Title = "Save Checklist Data File As",
+                Filter = "All files|*.*|ACDB Files|*.clbt",
+                FilterIndex = 2,
                 ValidateNames = true
             };
 

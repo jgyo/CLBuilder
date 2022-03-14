@@ -24,7 +24,7 @@ namespace CLBuilder.view
         public ChecklistInstructionView()
         {
             // InitializeComponent();
-            this.LoadViewFromUri("/CLBuilder;component/view/checklistinstructionview.xaml");
+            this.LoadViewFromUri("/ACDB;component/view/checklistinstructionview.xaml");
         }
     }
 }

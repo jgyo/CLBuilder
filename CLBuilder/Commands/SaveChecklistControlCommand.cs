@@ -32,6 +32,8 @@ namespace CLBuilder.Commands
                     DefaultExt = "clbt",
                     Multiselect = false,
                     Title = "Save Checklist Data File",
+                    Filter = "All files|*.*|ACDB Files|*.clbt",
+                    FilterIndex = 2,
                     InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
                     ValidateNames = true
                 };
