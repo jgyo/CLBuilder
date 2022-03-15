@@ -44,11 +44,6 @@ namespace CLBuilder.model
         {
             get
             {
-                if (string.IsNullOrEmpty(title))
-                {
-                    return "<checklist title>";
-                }
-
                 return title;
             }
 
@@ -79,11 +74,6 @@ namespace CLBuilder.model
         {
             get
             {
-                if (string.IsNullOrEmpty(name))
-                {
-                    return "<checklist name>";
-                }
-
                 return name;
             }
 
@@ -115,7 +105,7 @@ namespace CLBuilder.model
                     text.AppendLine($"{index} (>L:clphase)");
 
                     // Item to check
-                    text.AppendLine($"[](@{aircraftShortName}CLFOSPEAK:{item.Instruction}");
+                    text.AppendLine($"[](@{aircraftShortName}CLFOSPEAK:{item.Instruction})");
 
                     // Response
                     text.AppendLine($"[{item.Option}](@{aircraftShortName}CLFOSPEAK:{item.CheckedResponse})");
@@ -135,7 +125,7 @@ namespace CLBuilder.model
                 }
                 else
                 {
-                    text.AppendLine($", {NextChecklistTitle} is next");
+                    text.AppendLine($", {NextChecklistTitle} is next)");
                 }
 
                 return text.ToString();

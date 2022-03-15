@@ -85,7 +85,7 @@ namespace CLBuilder.viewModel
             }
 
             this.Voice = "Microsoft Zira Desktop";
-            this.VoiceRate = 1;
+            this.VoiceRate = 0;
             this.VoiceVolume = 75;
 
             AddChecklistCommand = new AddChecklistCommand(this);
@@ -147,7 +147,8 @@ namespace CLBuilder.viewModel
                 {
                     Name = item.Name,
                     NextChecklistTitle = nextCheckListTitle,
-                    Title = item.Title
+                    Title = item.Title,
+                    AircraftShortName = this.AircraftShortName
                 };
 
                 m.ChecklistItems.Clear();

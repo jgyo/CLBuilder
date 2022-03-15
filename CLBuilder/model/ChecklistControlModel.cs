@@ -127,24 +127,21 @@ namespace CLBuilder.model
             {
                 StringBuilder text = new StringBuilder();
                 // First line
-                text.AppendLine($"<Macro Name \"{AircraftShortName}CLFOSPEAK\">VOICE:{Voice}) (VOICERATE:{VoiceRate}) (VOICEVOLUME:{VoiceVolume})");
+                text.AppendLine($"<Macro Name=\"{AircraftShortName}CLFOSPEAK\">VOICE:{Voice}) (VOICERATE:{VoiceRate}) (VOICEVOLUME:{VoiceVolume}) (SPEAK</Macro>");
 
                 // Second line
-                text.AppendLine("SPEAK</Macro>");
-
-                // third line
-                text.AppendLine($"(L:{AircraftShortName}CheckList) ++ (>L:{AircraftShortName}Checklist)");
+                text.AppendLine($"(L:{AircraftShortName}Checklist) ++ (>L:{AircraftShortName}Checklist)");
 
                 // Checklist lines
                 int index = 1;
                 foreach (var item in Checklists)
                 {
-                    text.AppendLine($"(L:{AircraftShortName}CheckList) {index} == if" + "{" + $" (CHECKLIST:{AircraftShortName}\\{index}_{item.Name}_cl.txt) " + "}");
+                    text.AppendLine($"(L:{AircraftShortName}Checklist) {index} == if" + "{" + $" (CHECKLIST:{AircraftShortName}\\{index}_{item.Name}_cl.txt) " + "}");
                     index++;
                 }
 
                 // last line
-                text.AppendLine($"(L:{AircraftShortName}CheckList) {index} == if" + "{" + $" 0 (>L:<{AircraftShortName}Checklist) 1 (>K:AAO_CL_STOP) 0 (>L:clphase) " + ")");
+                text.AppendLine($"(L:{AircraftShortName}Checklist) {index} == if" + "{" + $" 0 (>L:<{AircraftShortName}Checklist) 1 (>K:AAO_CL_STOP) 0 (>L:clphase) " + ")");
 
                 return text.ToString();
 

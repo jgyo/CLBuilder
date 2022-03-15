@@ -78,7 +78,7 @@
                     Width="100"
                     VerticalAlignment="Center"
                     Maximum="5"
-                    Minimum="1"
+                    Minimum="0"
                     ToolTip="{Binding VoiceRate}"
                     Value="{Binding VoiceRate}" />
             </DockPanel>
