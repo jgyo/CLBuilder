@@ -107,7 +107,7 @@ namespace CLBuilder.model
             VoiceVolume = 75;
             Voice = "Microsoft Zira Desktop";
             Checklists = new List<ChecklistModel>();
-            ScriptsFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"LorbyAxisAndOhs Files\Scripts");
+            InstallFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"LorbyAxisAndOhs Files\Scripts");
         }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace CLBuilder.model
         /// </summary>
         /// <value>The scripts folder.</value>
         [DataMember]
-        public string ScriptsFolder { get; set; }
+        public string InstallFolder { get; set; }
 
         /// <summary>
         /// Gets the control text.

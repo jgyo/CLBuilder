@@ -94,6 +94,7 @@
     <Compile Include="Commands\AddInstructionCommand.cs" />
     <Compile Include="Commands\BaseCommand.cs" />
     <Compile Include="Commands\BuildChecklistScriptsCommand.cs" />
+    <Compile Include="Commands\BuildWebPagesCommand.cs" />
     <Compile Include="Commands\DeleteChecklistCommand.cs" />
     <Compile Include="Commands\DeleteInstructionCommand.cs" />
     <Compile Include="Commands\InsertChecklistCommand.cs" />

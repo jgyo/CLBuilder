@@ -49,7 +49,7 @@ namespace CLBuilder.viewModel
             set { this.SetProperty(ref voiceVolume, value); }
         }
 
-        public string ScriptsFolder
+        public string InstallFolder
         {
             get => scriptsFolder;
             set { this.SetProperty(ref scriptsFolder, value); }
@@ -77,11 +77,11 @@ namespace CLBuilder.viewModel
 
             try
             {
-                ScriptsFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "LorbyAxisAndOhs Files", "Scripts");
+                InstallFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "LorbyAxisAndOhs Files");
             }
             catch
             {
-                ScriptsFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
+                InstallFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
             }
 
             this.Voice = "Microsoft Zira Desktop";
@@ -107,7 +107,7 @@ namespace CLBuilder.viewModel
                 Voice = model.Voice,
                 VoiceRate = model.VoiceRate,
                 VoiceVolume = model.VoiceVolume,
-                ScriptsFolder = model.ScriptsFolder
+                InstallFolder = model.InstallFolder
             };
 
             foreach (var item in model.Checklists)
@@ -130,7 +130,7 @@ namespace CLBuilder.viewModel
             model.Voice = Voice;
             model.VoiceRate = VoiceRate;
             model.VoiceVolume = VoiceVolume;
-            model.ScriptsFolder = ScriptsFolder;
+            model.InstallFolder = InstallFolder;
 
             model.Checklists.Clear();
 

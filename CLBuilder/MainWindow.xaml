@@ -36,8 +36,12 @@
                 <Separator />
                 <MenuItem
                     Command="{Binding BuildChecklistScriptsCommand}"
-                    Header="Build"
+                    Header="Build scripts"
                     ToolTip="Build RPN scripts from current data." />
+                <MenuItem
+                    Command="{Binding BuildWebpagesCommand}"
+                    Header="Build web pages"
+                    ToolTip="Build web pages from current data." />
                 <Separator />
                 <MenuItem
                     Name="ExitButton"

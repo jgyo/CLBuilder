@@ -38,8 +38,8 @@
                 Grid.Row="0"
                 Grid.Column="1"
                 Margin="0,2"
-                ToolTip="Enter a short name for the aircraft"
-                Text="{Binding AircraftShortName}" />
+                Text="{Binding AircraftShortName}"
+                ToolTip="Enter a short name for the aircraft" />
             <Label
                 Grid.Row="1"
                 Grid.Column="0"
@@ -48,8 +48,9 @@
             <local:FolderTextBox
                 Grid.Row="1"
                 Grid.Column="1"
-                Margin="0,2" ToolTip="Where will the scripts' folder be saved"
-                Text="{Binding ScriptsFolder}" />
+                Margin="0,2"
+                Text="{Binding InstallFolder}"
+                ToolTip="Where will the scripts' folder be saved" />
             <Label
                 Grid.Row="2"
                 Grid.Column="0"
@@ -59,8 +60,8 @@
                 Grid.Row="2"
                 Grid.Column="1"
                 Margin="0,2"
-                ToolTip="Enter the name of the TTS voice to use"
-                Text="{Binding Voice}" />
+                Text="{Binding Voice}"
+                ToolTip="Enter the name of the TTS voice to use" />
             <Label
                 Grid.Row="3"
                 Grid.Column="0"

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CLBuilder.Extentions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -140,6 +141,104 @@ namespace CLBuilder.model
 
                 return text.ToString();
             }
+        }
+
+        public string WebText(int checklistNum, bool lastChecklist)
+        {
+            var checklistItems = new StringBuilder();
+
+            // {0} = instructionNum
+            // {1} = itemInstruction
+            var itemText = @"                <tr>
+                    <td style = ""width: 10 %; "" />
+      
+                          <td style = ""width: 10 %; "">
+            
+                                   <input id = ""item_{0}"" type = ""checkbox"" style = ""width: 20px; height: 20px; "" onclick = ""itemCheckClick('item_{0}')"">
+                         
+                                             </td>
+                         
+                                             <td style = ""width: 80 %; "">
+                               
+                                                       <label for= ""item_{0}"" id = ""itemLabel_{0}"" style = ""font - size: 24px; ""> {1} </label>
+                                
+                                                    </td>
+                                
+                                                </tr>";
+
+            var i = 1;
+            foreach (var item in ChecklistItems)
+            {
+                checklistItems.AppendLine(string.Format(itemText, i++, item.Instruction.Capitalize()));
+            }
+
+            var nextChecklistNum = checklistNum+1;
+            if (lastChecklist)
+            {
+                nextChecklistNum = 1;
+            }
+
+            // {0} = checklistNum
+            // {1} = nextChecklist
+            // {2} = Title
+            // {3} = AircraftShortName
+            // {4} = Name
+            // {5} = checklistItems.String()
+            // {6} = "{"
+            // {7} = ")"
+            var page =@"<!DOCTYPE html>
+<html>
+<head>
+  <link rel=""stylesheet"" href=""iconbuttons.css"">
+  <title>{2}</title>
+</head>
+<body>
+
+<script src=""clcontrol.js""></script>
+
+<script>
+    currentChecklist = {0};
+    
+    function bStartClClick() {6}
+        Reset();
+        sendScript('(CHECKLIST:{3}\\{3}_{0}_{4}_cl.txt)');
+    {7}
+
+    function bNextClClick() {6}
+        sendScript('{1} (>L:{3}Checklist) 0 (>L:clphase)');
+    {7}
+
+</script>
+<!-- Just a couple of un-styled buttons -->
+<table>
+    <tr>
+        <th>
+            {2}
+        </th>
+    </tr>
+    <tr>
+        <td style=""text-align: center; vertical-align: middle;""><input type=""button"" id=""bStartCl"" style=""font-size: 16px;"" class=""btn btn-2"" value=""Start checklist"" onclick=""bStartClClick()""></td>
+    </tr>
+    <tr>
+        <td style=""text-align: center; vertical-align: middle;""><input type=""button"" id=""bStopCl"" style=""font-size: 16px;"" class=""btn btn-3"" value=""Stop Checklist"" onclick=""bStopClClick()""></td>
+    </tr>
+    <tr>
+        <td colspan=""2"">
+            <table style=""width:100%;"">
+{5}
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td style=""text-align: center; vertical-align: middle;""><input type=""button"" style=""font-size: 16px;"" class=""btn btn-1"" value=""CHECKED"" onclick=""sendEvent(1, '(>K:AAO_CL_CHECKED)')""></td>
+    </tr>
+    <tr>
+        <td style=""text-align: center; vertical-align: middle;""><input type=""button"" id=""bNextCl"" style=""font-size: 16px;"" class=""btn btn-4"" value=""Next: Pushback"" onclick=""bNextClClick()""></td>
+    </tr>
+</table>
+</body>
+</html>";
+            return string.Format(page, checklistNum, lastChecklist, Title.ToUpper(), AircraftShortName, Name, checklistItems.ToString(), "{", "}");
         }
     }
 }

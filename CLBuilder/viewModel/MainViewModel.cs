@@ -20,6 +20,7 @@ namespace CLBuilder.viewModel
             SaveChecklistCommand = new SaveChecklistControlCommand(this);
             SaveChecklistAsCommand = new SaveChecklistControlAsCommand(this);
             BuildChecklistScriptsCommand = new BuildChecklistScriptsCommand(this);
+            BuildWebpagesCommand = new BuildWebPagesCommand(this);
         }
 
         public ChecklistControlViewModel ChecklistControlViewModel
@@ -45,6 +46,7 @@ namespace CLBuilder.viewModel
         }
 
         public ICommand BuildChecklistScriptsCommand { get; }
+        public ICommand BuildWebpagesCommand { get; }
         public ICommand NewChecklistCommand { get; }
         public ICommand OpenChecklistControlCommand { get; }
         public ICommand SaveChecklistAsCommand { get; }

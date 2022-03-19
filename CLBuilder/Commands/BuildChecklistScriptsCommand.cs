@@ -22,7 +22,7 @@ namespace CLBuilder.Commands
         {
             try
             {
-                var root = mainViewModel.ChecklistControlViewModel.ScriptsFolder;
+                var root = mainViewModel.ChecklistControlViewModel.InstallFolder;
                 var dir = mainViewModel.ChecklistControlViewModel.AircraftShortName;
                 var invalidPathChars = Path.GetInvalidPathChars();
 
@@ -35,7 +35,7 @@ namespace CLBuilder.Commands
                     return false;
                 }
 
-                foreach(var cl in mainViewModel.ChecklistControlViewModel.Checklists)
+                foreach (var cl in mainViewModel.ChecklistControlViewModel.Checklists)
                 {
                     var name = cl.Name;
                     if (name.Any(m => invalidPathChars.Contains(m)))
@@ -57,8 +57,13 @@ namespace CLBuilder.Commands
                 return;
             }
 
-            var root = mainViewModel.ChecklistControlViewModel.ScriptsFolder;
+            var root = Path.Combine(mainViewModel.ChecklistControlViewModel.InstallFolder, "Scripts");
             var icao = mainViewModel.ChecklistControlViewModel.AircraftShortName;
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+            }
+
             root = Path.Combine(root, icao);
 
             var controlModel = mainViewModel.ChecklistControlViewModel.Store();

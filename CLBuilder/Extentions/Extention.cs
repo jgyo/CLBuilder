@@ -15,6 +15,24 @@ namespace CLBuilder.Extentions
 {
     static class Extention
     {
+        /// <summary>
+        /// Capitalizes the specified source.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <returns>System.String.</returns>
+        public static string Capitalize(this string source)
+        {
+            if (source.IsNullOrEmpty())
+                return source;
+
+            return source.Substring(0, 1).ToUpper() + source.Substring(1);
+        }
+
+        public static bool IsNullOrEmpty(this string source)
+        {
+            return string.IsNullOrEmpty(source);
+        }
+
         public static void LoadViewFromUri(this UserControl userControl, string baseUri)
         {
             try
