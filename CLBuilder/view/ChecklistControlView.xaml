@@ -56,12 +56,23 @@
                 Grid.Column="0"
                 Content="Voice"
                 ToolTip="Enter the name of the TTS voice to use" />
-            <TextBox
+            <DockPanel
                 Grid.Row="2"
                 Grid.Column="1"
-                Margin="0,2"
-                Text="{Binding Voice}"
-                ToolTip="Enter the name of the TTS voice to use" />
+                Margin="0,2">
+                <Button
+                    Width="48"
+                    Margin="2,0,0,0"
+                    Padding="4,2"
+                    Panel.ZIndex="10"
+                    Command="{Binding TestTextToSpeechCommand}"
+                    Content="Test"
+                    DockPanel.Dock="Right" />
+                <ComboBox
+                    ItemsSource="{Binding InstalledVoices}"
+                    SelectedItem="{Binding Voice}"
+                    ToolTip="Enter the name of the TTS voice to use" />
+            </DockPanel>
             <Label
                 Grid.Row="3"
                 Grid.Column="0"

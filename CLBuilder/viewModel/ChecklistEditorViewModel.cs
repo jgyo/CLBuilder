@@ -1,5 +1,7 @@
 ﻿using CLBuilder.Commands;
+using CLBuilder.Extentions;
 using CLBuilder.model;
+using CLBuilder.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,7 +12,7 @@ using System.Windows.Input;
 
 namespace CLBuilder.viewModel
 {
-    public class ChecklistEditorViewModel : ViewModelBase
+    public class ChecklistEditorViewModel : ViewModelBase, ITestTextToSpeech
     {
         private string name;
         private string title;
@@ -22,7 +24,8 @@ namespace CLBuilder.viewModel
         public ICommand DeleteInstructionCommand { get; }
         public ICommand MoveInstructionUpCommand { get; }
         public ICommand MoveInstructionDownCommand { get; }
-        public ICommand OpenChecklistCommand { get; set; }
+        public ICommand OpenChecklistCommand { get; }
+        public ICommand TestTextToSpeechCommand { get; }
 
         public ChecklistEditorViewModel(ChecklistModel model) : this()
         {
@@ -45,6 +48,7 @@ namespace CLBuilder.viewModel
             MoveInstructionDownCommand = new MoveInstructionDownCommand(this);
             MoveInstructionUpCommand = new MoveInstructionUpCommand(this);
             OpenChecklistCommand = new OpenChecklistCommand(this);
+            TestTextToSpeechCommand = new TestTextToSpeechCommand(this);
         }
 
         public string Name
@@ -73,6 +77,16 @@ namespace CLBuilder.viewModel
         {
             get => selectedIndex;
             set => SetProperty(ref selectedIndex, value);
+        }
+
+        bool ITestTextToSpeech.CanExecute(object parameter)
+        {
+            return !Title.IsNullOrEmpty();
+        }
+
+        void ITestTextToSpeech.TestTTS(object parameter)
+        {
+            TextToSpeechService.Speak(Title);
         }
     }
 }

@@ -27,24 +27,40 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Label Content="Instruction" />
-            <TextBox
-                Grid.Row="0"
-                Grid.Column="1"
-                Margin="5,1,2,1"
-                ext:SelectAllBehavior.Enable="True"
-                Text="{Binding Instruction, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True}"
-                ToolTip="The instruction to give for this item." />
+            <DockPanel Grid.Row="0" Grid.Column="1">
+                <Button
+                    Margin="4,2,2,2"
+                    Padding="4,2"
+                    Panel.ZIndex="5"
+                    CommandParameter="{Binding Instruction}"
+                    Command="{Binding TestTextToSpeechCommand}"
+                    Content="TTS"
+                    DockPanel.Dock="Right" />
+                <TextBox
+                    Margin="5,1,2,1"
+                    ext:SelectAllBehavior.Enable="True"
+                    Text="{Binding Instruction, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True}"
+                    ToolTip="The instruction to give for this item." />
+            </DockPanel>
             <Label
                 Grid.Row="1"
                 Grid.Column="0"
                 Content="Checked Response" />
-            <TextBox
-                Grid.Row="1"
-                Grid.Column="1"
-                Margin="5,1,2,1"
-                ext:SelectAllBehavior.Enable="True"
-                Text="{Binding CheckedResponse, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True}"
-                ToolTip="Response to give after instruction has been followed." />
+            <DockPanel Grid.Row="1" Grid.Column="1">
+                <Button
+                    Margin="4,2,2,2"
+                    Padding="4,2"
+                    Panel.ZIndex="5"
+                    CommandParameter="{Binding CheckedResponse}"
+                    Command="{Binding TestTextToSpeechCommand}"
+                    Content="TTS"
+                    DockPanel.Dock="Right" />
+                <TextBox
+                    Margin="5,1,2,1"
+                    ext:SelectAllBehavior.Enable="True"
+                    Text="{Binding CheckedResponse, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True}"
+                    ToolTip="Response to give after instruction has been followed." />
+            </DockPanel>
             <Label
                 Grid.Row="2"
                 Grid.Column="0"

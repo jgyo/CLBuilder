@@ -1,6 +1,9 @@
 ﻿using CLBuilder.Commands;
+using CLBuilder.Extentions;
 using CLBuilder.model;
+using CLBuilder.Services;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
@@ -8,7 +11,7 @@ using System.Windows.Input;
 
 namespace CLBuilder.viewModel
 {
-    public class ChecklistControlViewModel : ViewModelBase
+    public class ChecklistControlViewModel : ViewModelBase, ITestTextToSpeech
     {
         private string aircraftShortName;
         private string voice;
@@ -24,6 +27,9 @@ namespace CLBuilder.viewModel
         public ICommand MoveChecklistDownCommand { get; }
         public ICommand InsertChecklistCommand { get; }
         public ICommand ViewChecklistTextCommand { get; }
+        public ICommand TestTextToSpeechCommand { get; }
+
+        public List<String> InstalledVoices { get; }
 
         public string AircraftShortName
         {
@@ -84,7 +90,7 @@ namespace CLBuilder.viewModel
                 InstallFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
             }
 
-            this.Voice = "Microsoft Zira Desktop";
+            // this.Voice = "Microsoft Zira Desktop";
             this.VoiceRate = 1;
             this.VoiceVolume = 75;
 
@@ -94,6 +100,11 @@ namespace CLBuilder.viewModel
             MoveChecklistUpCommand = new MoveChecklistUpCommand(this);
             InsertChecklistCommand = new InsertChecklistCommand(this);
             ViewChecklistTextCommand = new ViewChecklistTextCommand(this);
+            TestTextToSpeechCommand = new TestTextToSpeechCommand(this);
+
+            InstalledVoices = TextToSpeechService.InstalledVoices;
+            if(InstalledVoices.Count > 0)
+                this.Voice = InstalledVoices[0];
         }
 
         public void Clear()
@@ -166,6 +177,17 @@ namespace CLBuilder.viewModel
             }
 
             return model;
+        }
+
+        bool ITestTextToSpeech.CanExecute(object parameter)
+        {
+            return !Voice.IsNullOrEmpty() && InstalledVoices.Any(m => m == Voice);
+        }
+
+        void ITestTextToSpeech.TestTTS(object parameter)
+        {
+            var prompt = $"You have selected this voice with a rate of {VoiceRate}. {Voice}";
+            TextToSpeechService.Speak(Voice, prompt, VoiceRate);
         }
     }
 }

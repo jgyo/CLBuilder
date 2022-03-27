@@ -43,13 +43,22 @@
                 Grid.Row="1"
                 Grid.Column="0"
                 Content="Title" />
-            <TextBox
+            <DockPanel
                 Grid.Row="1"
                 Grid.Column="1"
-                Margin="0,2"
-                Panel.ZIndex="2"
-                Text="{Binding Title}"
-                ToolTip="Official name of the checklist. Used to announce the script name with TTS." />
+                Panel.ZIndex="2">
+                <Button
+                    Margin="4,2,0,2"
+                    Padding="4,2"
+                    Panel.ZIndex="5"
+                    Command="{Binding TestTextToSpeechCommand}"
+                    Content="TTS"
+                    DockPanel.Dock="Right" />
+                <TextBox
+                    Margin="0,2"
+                    Text="{Binding Title}"
+                    ToolTip="Official name of the checklist. Used to announce the script name with TTS." />
+            </DockPanel>
             <Label Grid.Row="2" Grid.Column="0">
                 <TextBlock Text="{Binding Instructions.Count, Mode=OneWay, StringFormat=Instructions (\{0:D\})}" />
             </Label>
