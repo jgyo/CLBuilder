@@ -1,5 +1,5 @@
 # Aircraft Checklist Database Builder (ACDB)
-I wrote **ACDB** to help users create interactive TTS checklists for [Lorby Axis and Ohs](https://axisandohs.weebly.com/). The program collects information from the user that it uses to write special RPN scripts that Axis and Ohs can run as if it is reading off a checklist and waiting for confirmation that each item is completed. **ACDB** greatly simplifies the process and makes it possible for the user to easily edit the scripts, if he desire to make a change in the checklists.
+I wrote **ACDB** to help users create interactive TTS checklists for [Lorby Axis and Ohs](https://axisandohs.weebly.com/). The program collects information from the user that it uses to write special RPN scripts that Axis and Ohs can run as if it is reading off a checklist and waiting for confirmation that each item is completed. **ACDB** greatly simplifies the process and makes it possible for the user to easily edit the scripts, if he desires to make a change in the checklists.
 
 ![Snag_cee53c9](https://user-images.githubusercontent.com/2886615/158017688-016a1bf9-bef1-4ede-8f0b-9f822dc7f739.png)
 
